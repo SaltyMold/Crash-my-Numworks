@@ -24,6 +24,11 @@ To install this app, you'll need to:
 
 Click on the Application, this will Crash and Reset your Numworks.
 
+
+<td style="padding-left: 20px;">
+      <img src="https://github.com/user-attachments/assets/8d90b405-dafb-4c20-b2fd-8b596124ba01" width="200" alt="Crash-my-Numworks">
+</td>
+
 ## Build the app
 
 To build this sample app, you will need to install the **[embedded ARM toolchain](https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain)** and **[Node.js](https://nodejs.org/en/) 18**. The C SDK for Epsilon apps is shipped as an **npm module called [nwlink](https://www.npmjs.com/package/nwlink) v0.0.16**.
