@@ -22,12 +22,10 @@ To install this app, you'll need to:
 
 ## How to use the app
 
-Click on the Application, this will Crash and Reset your Numworks.
-
-
-<td style="padding-left: 20px;">
-      <img src="https://github.com/user-attachments/assets/8d90b405-dafb-4c20-b2fd-8b596124ba01" width="200" alt="Crash-my-Numworks">
-</td>
+| Version  | v0.0.1 | v0.0.2 |
+|----------|--------|--------|
+| **Description** | Click on the Application, this will Crash and Reset your Numworks. | Click on the app, then press home to exit or nine to crash. |
+| **Screenshot** | <img src="https://github.com/user-attachments/assets/8d90b405-dafb-4c20-b2fd-8b596124ba01" width="200" alt="Crash-my-Numworks"> | <img src="https://github.com/user-attachments/assets/6edb1597-2885-45de-9d64-34194922e8ae" width="200" alt="Crash-my-Numworks2"> |
 
 ## Build the app
 
