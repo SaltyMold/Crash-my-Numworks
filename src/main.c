@@ -1,4 +1,5 @@
 #include "eadk.h"
+#include <stdio.h>
 
 const char eadk_app_name[] __attribute__((section(".rodata.eadk_app_name"))) = "Crash-my-Numworks";
 const uint32_t eadk_api_level  __attribute__((section(".rodata.eadk_api_level"))) = 0;
@@ -96,33 +97,49 @@ void decode_and_draw_image(const char *code) {
 int main(int argc, char * argv[]) {
   eadk_display_push_rect_uniform(eadk_screen_rect, eadk_color_black);
   eadk_display_draw_string("Press Home to cancel", (eadk_point_t){60, 80}, true, eadk_color_white, eadk_color_black);
-  eadk_display_draw_string("Press 9 to crash", (eadk_point_t){60, 100}, true, eadk_color_white, eadk_color_black);
+  eadk_display_draw_string("Hold 9 to crash", (eadk_point_t){60, 100}, true, eadk_color_white, eadk_color_black);
 
   while (1) {
     eadk_keyboard_state_t state = eadk_keyboard_scan();
 
     if (eadk_keyboard_key_down(state, eadk_key_home)) {
         break;
-    } 
-    else if (eadk_keyboard_key_down(state, eadk_key_nine)) {
-
-      for (int i = 0; i < 5; i++){
-        eadk_timing_msleep(200);
-        decode_and_draw_image(image_code[0]);
-        eadk_timing_msleep(200);
+    } else if (eadk_keyboard_key_down(state, eadk_key_nine)) {
+      for (int i = 300; i >= 0; i--) {
+        char buffer[20];
+        snprintf(buffer, sizeof(buffer), "Timer: %d.%02d", i / 100, i % 100);
         eadk_display_push_rect_uniform(eadk_screen_rect, eadk_color_black);
+        eadk_display_draw_string(buffer, (eadk_point_t){105, 90}, true, eadk_color_white, eadk_color_black);
+        eadk_timing_msleep(4);
+
+        state = eadk_keyboard_scan();
+        if (!eadk_keyboard_key_down(state, eadk_key_nine)) {
+          eadk_display_push_rect_uniform(eadk_screen_rect, eadk_color_black);
+          eadk_display_draw_string("Press Home to cancel", (eadk_point_t){60, 80}, true, eadk_color_white, eadk_color_black);
+          eadk_display_draw_string("Hold 9 to crash", (eadk_point_t){60, 100}, true, eadk_color_white, eadk_color_black);
+          break;
+        }
+
+        if (i == 0) {
+          for (int j = 0; j < 5; j++) {
+            eadk_timing_msleep(200);
+            decode_and_draw_image(image_code[0]);
+            eadk_timing_msleep(200);
+            eadk_display_push_rect_uniform(eadk_screen_rect, eadk_color_black);
+          }
+          eadk_timing_msleep(1000);
+          eadk_display_draw_string("Allahu", (eadk_point_t){90, 90}, true, eadk_color_white, eadk_color_black);
+          eadk_timing_msleep(1000);
+          eadk_display_draw_string("Akbar", (eadk_point_t){170, 90}, true, eadk_color_white, eadk_color_black);
+          eadk_timing_msleep(1000);
+
+          decode_and_draw_image(image_code[1]);
+          eadk_timing_msleep(2000);
+
+          volatile int *ptr = (int *)0xFFFFFFFF;
+          *ptr = 0;
+        }
       }
-      eadk_timing_msleep(1000);
-      eadk_display_draw_string("Allahu", (eadk_point_t){90, 90}, true, eadk_color_white, eadk_color_black);
-      eadk_timing_msleep(1000);
-      eadk_display_draw_string("Akbar", (eadk_point_t){170, 90}, true, eadk_color_white, eadk_color_black);
-      eadk_timing_msleep(1000);
-
-      decode_and_draw_image(image_code[1]);
-      eadk_timing_msleep(2000);
-
-      volatile int *ptr = (int *)0xFFFFFFFF;
-      *ptr = 0;
     }
   }
   return 0;
