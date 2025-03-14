@@ -22,10 +22,10 @@ To install this app, you'll need to:
 
 ## How to use the app
 
-| Version  | v0.0.1 | v0.0.2 |
-|----------|--------|--------|
-| **Description** | Click on the Application, this will Crash and Reset your Numworks. | Click on the app, then press home to exit or nine to crash. |
-| **Screenshot** | <img src="https://github.com/user-attachments/assets/8d90b405-dafb-4c20-b2fd-8b596124ba01" width="200" alt="Crash-my-Numworks"> | <img src="https://github.com/user-attachments/assets/6edb1597-2885-45de-9d64-34194922e8ae" width="200" alt="Crash-my-Numworks2"> |
+| Version  | v0.0.1 | v0.0.2 | v0.0.3 | v0.0.4 |
+|----------|--------|--------|--------|--------|
+| **Description** | Click on the Application, this will Crash and Reset your Numworks. | Click on the app, then press home to exit or nine to crash. | I added a funny ending | You need to hold insted of crash + funny ending. |
+| **Screenshot** | <img src="https://github.com/user-attachments/assets/8d90b405-dafb-4c20-b2fd-8b596124ba01" width="200" alt="Crash-my-Numworks"> | <img src="https://github.com/user-attachments/assets/6edb1597-2885-45de-9d64-34194922e8ae" width="200" alt="Crash-my-Numworks2"> | <img src="https://github.com/user-attachments/assets/280d4984-8ba7-4239-a44f-baaceaa5317c" width="200" alt="Crash-my-Numworks3"> | <img src="https://github.com/user-attachments/assets/727d5ae8-933c-4cc7-a94e-6c71e78b0e6e" width="200" alt="Crash-my-Numworks4"> |
 
 ## Build the app
 
